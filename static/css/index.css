@@ -1,0 +1,53 @@
+
+.sel-content{
+  margin-bottom: .1rem;
+}
+
+.van-cell__title{
+  font-size: .17rem;
+  font-weight: 500;
+  color: #1A1651;
+  flex: 0 1 1rem;
+}
+.van-cell__value{
+  text-align: left;
+}
+
+.subject-list{
+  padding: .15rem .2rem;
+  font-size: .17rem;
+  color: #1A1651;
+  background: #F7F3FF;
+  height: 100%;
+  position: relative;
+}
+.subject-title{
+  font-size: .18rem;
+  margin-bottom: .15rem;
+  font-weight: 700;
+}
+
+.subject-item{
+  margin-bottom: .1rem;
+  background: #fff;
+  padding: 2% 12% 2% 4%;
+  line-height: .24rem;
+  border-radius: .1rem;
+  position: relative;
+}
+.subject-item .sel{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: .35rem;
+  height: .25rem;
+  background: url("../images/sel.png") 0 0 no-repeat;
+  background-size: cover;  
+}
+.subject-btn{
+  position: absolute;
+  bottom: .3rem;
+  left: .2rem;
+  right: .2rem;
+}
+

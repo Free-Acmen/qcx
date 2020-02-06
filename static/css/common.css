@@ -1,0 +1,40 @@
+.van-button--info{
+  background: #426DEF;
+}
+.van-button--normal{
+  font-size: .18rem;
+  font-weight: 700;
+}
+
+#app{
+  position: relative;
+}
+
+[v-cloak]{
+  display: none;
+}
+.section{
+  margin: .1rem .2rem .1rem;
+}
+
+.footer{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+.footer .btn{
+  padding: 0 .20rem;
+  margin-bottom: .12rem;
+}
+.footer-nav{
+  padding: .13rem .2rem;  
+  /* height: 49px;
+  line-height: 49px; */
+  text-align: center;
+  background-color: #fff; 
+}
+
+.footer-nav .content{
+  display: inline-block;
+  width: 1.20rem;
+}

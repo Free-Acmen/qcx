@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <!-- <link rel="icon" href="./static/images/favicon.ico"> -->
+    <link rel="stylesheet" href="./static/css/reset.css">
+    <link rel="stylesheet" href="./static/plugins/vant/index.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.4/lib/index.css"> -->
+    <link rel="stylesheet" href="./static/css/common.css">
+    <link rel="stylesheet" href="./static/css/rank.css">
+    <title>初试成绩</title>
+    <script>
+      (function(doc, win) {
+        var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';
+        };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+      })(document, window);
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but ruiyun doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app" :style="{height: height}" v-cloak>
+      <div class="grade-info">
+        <div>
+          <label>姓名:</label>
+          <span class="val">{{userInfo.name}}</span>
+        </div>
+        <div>
+          <label>报考院校:</label>
+          <span class="val">{{userInfo.colleges}}</span>
+        </div>
+        <div>
+          <label>报考院系:</label>
+          <span  class="val">{{userInfo.system}}</span>
+        </div>
+        <div>
+          <label>总分:</label>
+          <span  class="val">{{userInfo.score}}</span>
+        </div>
+      </div>
+      <section class="section">
+        <div class="tips">
+          温馨提示: 参与排名人数越多排名越准哦~
+          <em @click="share"></em>
+        </div>
+        <div class="rank-info">
+          <van-row gutter="8">
+            <van-col span="8">
+              <div class="rank-type school">
+                <p class="rank-val">{{rankData.school.val}}</p>
+                <p class="rank-text">校内排名</p>
+                <p class="rank-total">共{{rankData.school.total}}人</p>
+              </div>
+            </van-col>
+            <van-col span="8">
+              <div class="rank-type compound">
+                <p class="rank-val">{{rankData.compound.total}}</p>
+                <p class="rank-text">院内排名</p>
+                <p class="rank-total">共{{rankData.compound.total}}人</p>
+              </div>
+            </van-col>
+            <van-col span="8">
+              <div class="rank-type major">
+                <p class="rank-val">{{rankData.major.total}}</p>
+                <p class="rank-text">专业排名</p>
+                <p class="rank-total">共{{rankData.major.total}}人</p>
+              </div>
+            </van-col>
+          </van-row>
+        </div>
+        <div class="remark">
+          注: 此报告生成时间为{{rankData.time}}
+        </div>
+      </section>
+      <footer class="footer">
+        <div class="btn btn-group">
+          <div class="item" style="margin-right: 5px;">
+            <van-button @click="updateHandle" type="info" block round>更新排名</van-button>
+          </div>
+          <div class="item" style="margin-left: 5px;">
+            <van-button @click="communicationHandle" type="info" block round>复试/二战交流群</van-button>
+          </div>
+        </div>
+        <!-- <div class="footer-nav">
+          <div class="content">
+            <van-icon name="arrow-left" color="#292C29" size="24" style="float: left;"></van-icon>
+            <van-icon name="arrow" color="#B5B6BD" size="24" style="float: right;"></van-icon>
+          </div>
+        </div> -->
+      </footer>
+
+      <van-popup v-model="update" :close-on-click-overlay="false">
+        <div class="popup-content update">
+          <div class="code">
+            <p class="popup-title">关注公众号 “前程校” 随时获取最新排名</p>
+            <div>
+              <div class="code-img">
+                <img src="./static/images/school.png" alt="logo">
+              </div>
+              <p class="mark-tip">
+                <span class="mark"></span>
+                长按识别二维码
+              </p>
+            </div>
+          </div>
+          <span class="close" @click="update=false"></span>
+        </div>
+      </van-popup>
+
+      <van-popup v-model="communication" :close-on-click-overlay="false">
+        <div class="popup-content communication">
+          <div class="code">
+            <p class="popup-title">添加 “前程校” 客服微信拉你进交流群</p>
+            <div>
+              <div class="code-img">
+                <img src="./static/images/school.png" alt="logo">
+              </div>
+              <p class="mark-tip">
+                <span class="mark"></span>
+                长按识别二维码
+              </p>
+            </div>
+          </div>
+          <span class="close" @click="communication = false"></span>
+        </div>
+      </van-popup>
+    </div>
+    <script src="./static/plugins/jquery-3.2.1.min.js"></script>
+    <script src="./static/plugins/vue.min.js"></script>
+    <script src="./static/plugins/vant/vant.min.js"></script>
+    <!-- 微信sdk文件，调用微信接口功能 -->
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vant@2.4/lib/vant.min.js"></script> -->
+    <script src="./static/js/common.js"></script>
+    <script src="./static/js/rank.js"></script>
+  </body>
+</html>
