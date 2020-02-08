@@ -39,8 +39,9 @@
           <van-cell @click="cellHandel('city')" title="省市" is-link :value="city||'请选择省市'"></van-cell>
           <van-cell @click="cellHandel('colleges', 'city')" title="院校" is-link :value="colleges||'请选择院校'"></van-cell>
           <van-cell @click="cellHandel('system', 'colleges')" title="院系" is-link :value="system||'请选择院系'"></van-cell>
-          <van-cell @click="cellHandel('major', 'system')" title="专业" is-link :value="major||'请选择专业'"></van-cell>
-          <van-cell @click="cellHandel('subject', 'major')" title="科目" is-link :value="subject||'请选择科目'"></van-cell>
+          <van-cell @click="cellHandel('major', 'system')" title="专业" is-link :value="major || '请选择专业'"></van-cell>
+          <van-cell @click="cellHandel('direction', 'major')" title="方向" is-link :value="direction ||'请选择方向'"></van-cell>
+          <van-cell @click="cellHandel('subject', 'direction')" title="科目" is-link :value="subject||'请选择科目'"></van-cell>
         </div>
        
       </section>
@@ -64,6 +65,10 @@
 
       <van-picker v-if="majorFlag" :loading="loading" show-toolbar title="专业" :columns="majorList" @cancel="cancel('major')" @confirm="majorConfirm"></van-picker>
 
+      <van-picker v-if="directionFlag" :loading="loading" show-toolbar title="方向" :columns="directionList" @cancel="cancel('direction')" @confirm="directionConfirm"></van-picker>
+
+
+
       <van-popup v-model="subjectFlag" closeable position="right" :style="{ height: '100%', width: '100%' }">
         <div class="subject-list">
           <p class="subject-title">选择科目</p>
@@ -76,7 +81,6 @@
           </div>
         </div>
       </van-popup>
-
 
     </div>
     <script src="./static/plugins/jquery-3.2.1.min.js"></script>

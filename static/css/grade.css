@@ -43,31 +43,43 @@
 }
 
 .grade-field label{
-  width: 1.9rem;
+  width: 1.6rem;
   font-size: .17rem;
 }
 
 .grade-field .field-val{
-  width: .85rem;
+  width: 1.2rem;
   padding-left: .15rem;
   height: .4rem;
   line-height: .4rem;
   background: #F7F3FF;
   border-radius: .3rem;
+  display: flex;
+  align-items: center;
+  /* overflow: hidden; */
+  /* vertical-align: middle; */
 }
 
 .grade-field .field-val .van-cell{
   padding: 0;
-  width: 60%;
+  width: 70%;
+  height: 90%;
   display: inline-block;
   line-height: .39rem;
   background: #F7F3FF;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   font-size: .23rem;
+}
+
+.grade-field .field-val .van-cell__value{
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .grade-field .field-val .van-cell .van-field__control{
   color: #416DEF;
+  height: 100%;
 }
 .grade-field .field-val .append{
   font-size: .15rem;

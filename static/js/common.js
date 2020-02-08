@@ -1,44 +1,52 @@
 var HOST='https://m.qianchengxiao.com'
 var baseUrl = 'https://amzs.esells.cn/api/'
 var Interface = {
-  'city': {//省市
-    url: 'AMZDS/SpiderAsin/getPage',
+  'getSelData': {
+    url: 'HYJY/Paths/GetNextPaths',
     method: 'post'
   },
-  'colleges': {//院校
-    url: 'AMZDS/SpiderAsin/getPage',
-    method: 'post'
-  },
-  'system': {//院系
-    url: 'AMZDS/SpiderAsin/getPage',
-    method: 'post'
-  },
-  'major': {//专业
-    url: 'AMZDS/SpiderAsin/getPage',
-    method: 'post'
-  },
-  'subject': {//科目
-    url: 'AMZDS/SpiderAsin/getPage',
-    method: 'post'
-  },
-  'submit': {// 首页提交接口
-    url: 'AMZDS/SpiderAsin/getPage',
-    method: 'post'
-  },
-  'getUserInfo': {// 报考信息页面获取用户学院信息接口
-    url: 'AMZDS/SpiderAsin/getPage',
-    method: 'post'
-  },
+  // 'city': {//省市
+  //   url: 'AMZDS/SpiderAsin/getPage',
+  //   method: 'post'
+  // },
+  // 'colleges': {//院校
+  //   url: 'AMZDS/SpiderAsin/getPage',
+  //   method: 'post'
+  // },
+  // 'system': {//院系
+  //   url: 'AMZDS/SpiderAsin/getPage',
+  //   method: 'post'
+  // },
+  // 'major': {//专业
+  //   url: 'AMZDS/SpiderAsin/getPage',
+  //   method: 'post'
+  // },
+  // 'direction': {
+  //   url: 'AMZDS/SpiderAsin/getPage',
+  //   method: 'post'
+  // },
+  // 'subject': {//科目
+  //   url: 'AMZDS/SpiderAsin/getPage',
+  //   method: 'post'
+  // },
+  // 'submit': {// 首页提交接口
+  //   url: 'AMZDS/SpiderAsin/getPage',
+  //   method: 'post'
+  // },
+  // 'getUserInfo': {// 报考信息页面获取用户学院信息接口
+  //   url: 'AMZDS/SpiderAsin/getPage',
+  //   method: 'post'
+  // },
   'getCode': {// 报考信息页面获取验证码
-    url: 'AMZDS/SpiderAsin/getPage',
+    url: 'HYJY/Paths/GetCode',
     method: 'post'
   },
   'complete': {//验证码填写完成接口
-    url: 'AMZDS/SpiderAsin/getPage',
+    url: 'HYJY/Paths/GetRank',
     method: 'post'
   },
   'getRank': {//排名页面数据
-    url: 'AMZDS/SpiderAsin/getPage',
+    url: 'HYJY/Paths/GetInfo',
     method: 'post'
   }
 }
@@ -152,3 +160,5 @@ var Cache = {
 }
 
 Vue.prototype.ajax = PFunc.ajax
+Vue.prototype.cache = Cache
+

@@ -34,19 +34,19 @@
       <div class="grade-info">
         <div>
           <label>姓名:</label>
-          <span class="val">{{userInfo.name}}</span>
+          <span class="val">{{userInfo.RealName}}</span>
         </div>
         <div>
           <label>报考院校:</label>
-          <span class="val">{{userInfo.colleges}}</span>
+          <span class="val">{{userInfo.p2name}}</span>
         </div>
         <div>
           <label>报考院系:</label>
-          <span  class="val">{{userInfo.system}}</span>
+          <span  class="val">{{userInfo.p3name}}</span>
         </div>
         <div>
           <label>总分:</label>
-          <span  class="val">{{userInfo.score}}</span>
+          <span  class="val">{{userInfo.TotalGrade/100}}</span>
         </div>
       </div>
       <section class="section">
@@ -58,29 +58,29 @@
           <van-row gutter="8">
             <van-col span="8">
               <div class="rank-type school">
-                <p class="rank-val">{{rankData.school.val}}</p>
+                <p class="rank-val">{{userInfo.Rank1}}</p>
                 <p class="rank-text">校内排名</p>
-                <p class="rank-total">共{{rankData.school.total}}人</p>
+                <p class="rank-total">共{{userInfo.Total1}}人</p>
               </div>
             </van-col>
             <van-col span="8">
               <div class="rank-type compound">
-                <p class="rank-val">{{rankData.compound.total}}</p>
+                <p class="rank-val">{{userInfo.Rank2}}</p>
                 <p class="rank-text">院内排名</p>
-                <p class="rank-total">共{{rankData.compound.total}}人</p>
+                <p class="rank-total">共{{userInfo.Total2}}人</p>
               </div>
             </van-col>
             <van-col span="8">
               <div class="rank-type major">
-                <p class="rank-val">{{rankData.major.total}}</p>
+                <p class="rank-val">{{userInfo.Rank3}}</p>
                 <p class="rank-text">专业排名</p>
-                <p class="rank-total">共{{rankData.major.total}}人</p>
+                <p class="rank-total">共{{userInfo.Total3}}人</p>
               </div>
             </van-col>
           </van-row>
         </div>
         <div class="remark">
-          注: 此报告生成时间为{{rankData.time}}
+          注: 此报告生成时间为{{userInfo.RankTime}}
         </div>
       </section>
       <footer class="footer">
@@ -91,6 +91,9 @@
           <div class="item" style="margin-left: 5px;">
             <van-button @click="communicationHandle" type="info" block round>复试/二战交流群</van-button>
           </div>
+        </div>
+        <div class="btn">
+          <van-button @click="reset" block round>重新查询</van-button>
         </div>
         <!-- <div class="footer-nav">
           <div class="content">

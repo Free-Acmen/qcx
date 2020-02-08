@@ -5,41 +5,21 @@ new Vue({
       height: '568px',
       update: false,
       communication: false,
-      userInfo: {
-        name: '李云龙',
-        colleges: '北京师范大学',
-        system: '信息系',
-        score: 546
-      },
-      rankData: {
-        school: {
-          val: 90,
-          total: 290
-        },
-        compound: {
-          val: 90,
-          total: 290
-        },
-        major: {
-          val: 90,
-          total: 290
-        },
-        time: '2020年02月13日'
-      }
+      userInfo: {}
     }
   },
   created() {
+    this.uinfo = Cache.get('uinfo');
     this.height = window.innerHeight + 'px';
     this.initData()
   },
   methods: {
     initData: function(){
       var that = this
-      var data = {}
-      this.ajax('getRank', data).then(function(res){
+      this.ajax('getRank', this.uinfo, 1).then(function(res){
         console.log(res)
-        // that.userInfo = res.data.userInfo
-        // that.rankData = res.data.rankData
+        that.userInfo = res.data
+        Cache.set("rank", res.data);
       })
     },
     updateHandle: function(){
@@ -47,6 +27,19 @@ new Vue({
     },
     communicationHandle: function(){
       this.communication = true
+    },
+    reset: function(){
+      vant.Dialog.confirm({
+        title: '提示',
+        message: '你确定需要清除记录，重新查询吗？'
+      }).then(() => {
+        Cache.clear("s-paths");
+        Cache.clear("uinfo");
+        Cache.clear("rank");
+        window.location.href = HOST + '/index.html'
+      }).catch(() => {
+        // on cancel
+      });
     },
     share: function(){
       console.log('微信分享功能')

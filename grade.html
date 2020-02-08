@@ -38,30 +38,38 @@
         </div>
         <div>
           <label>报考院校:</label>
-          <span class="val">{{userInfo.colleges}}</span>
+          <span class="val">{{sPaths && sPaths.p2.name}}</span>
         </div>
         <div>
           <label>报考院系:</label>
-          <span  class="val">{{userInfo.system}}</span>
+          <span  class="val">{{sPaths && sPaths.p3.name}}</span>
         </div>
         <div>
           <label>报考专业:</label>
-          <span  class="val">{{userInfo.major}}</span>
+          <span  class="val">{{sPaths && sPaths.p4.name}}</span>
         </div>
       </div>
       <section class="section">
-        <div class="grade-field" v-for="(item, index) in fields" :key="index">
-          <label>{{item.label}}</label>
+        <div class="grade-field">
+          <label style="width: .9rem;">姓名</label>
+          <div class="field-val" style="width: 1.6rem;">
+            <van-field v-model="name"></van-field>
+          </div>
+        </div>
+        <div class="grade-field" v-for="(item, index) in grades" :key="index">
+          <label>{{item.name}}</label>
           <div class="field-val">
-            <van-field type="digit" v-model="item.val"></van-field>
+            <van-field type="number" v-model="item.grade"></van-field>
             <span class="append">分</span>
           </div>
         </div>
-      
       </section>
       <footer class="footer">
         <div class="btn">
           <van-button @click="queryHandle" type="info" block round>查询排名</van-button>
+        </div>
+        <div class="btn">
+          <van-button @click="reset" block round>重新查询</van-button>
         </div>
         <!-- <div class="footer-nav">
           <div class="content">
