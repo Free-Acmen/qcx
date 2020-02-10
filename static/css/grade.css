@@ -80,6 +80,7 @@
 .grade-field .field-val .van-cell .van-field__control{
   color: #416DEF;
   height: 100%;
+  line-height: .25rem;
 }
 .grade-field .field-val .append{
   font-size: .15rem;

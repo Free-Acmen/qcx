@@ -19,6 +19,10 @@ new Vue({
   },
   created() {
     this.sPaths = Cache.get('s-paths');
+    if(!this.sPaths){
+      window.location.href = HOST + '/index.html'
+      return
+    }
     this.height = window.innerHeight + 'px';
     this.initData()
   },

@@ -5,11 +5,16 @@ new Vue({
       height: '568px',
       update: false,
       communication: false,
+      show: false,
       userInfo: {}
     }
   },
   created() {
     this.uinfo = Cache.get('uinfo');
+    if(!this.uinfo){
+      // window.location.href = HOST + '/index.html'
+      // return
+    }
     this.height = window.innerHeight + 'px';
     this.initData()
   },
@@ -43,6 +48,7 @@ new Vue({
     },
     share: function(){
       console.log('微信分享功能')
+      this.show = true
     }
   }
 });

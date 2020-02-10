@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
     <!-- <link rel="icon" href="./static/images/favicon.ico"> -->
+    <meta name="description" content="我刚在这里查询了考研初试排名，很好用，你也来查一下吧！知己知彼，复试无忧！" />
     <link rel="stylesheet" href="./static/css/reset.css">
     <link rel="stylesheet" href="./static/plugins/vant/index.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.4/lib/index.css"> -->
     <link rel="stylesheet" href="./static/css/common.css">
     <link rel="stylesheet" href="./static/css/rank.css">
-    <title>初试成绩</title>
+    <title>前程校2020考研初试排名查询</title>
     <script>
       (function(doc, win) {
         var docEl = doc.documentElement,
@@ -31,6 +32,9 @@
     <noscript>
       <strong>We're sorry but ruiyun doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+    <div style ='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
+      <img src='./static/images/logo@300px.png' />
+    </div>
     <div id="app" :style="{height: height}" v-cloak>
       <div class="grade-info">
         <div>
@@ -139,6 +143,19 @@
           <span class="close" @click="communication = false"></span>
         </div>
       </van-popup>
+
+      <!-- <van-overlay :show="show" @click="show=false"> -->
+        <div class="share-wrapper" v-if="show" @click="show=false">
+          <div class="block">
+            <div style="overflow: hidden;">
+              <img src="./static/images/arrow.png" alt="右上角">
+            </div>
+            <div>
+              请点击右上角分享
+            </div>
+          </div>
+        </div>
+      <!-- </van-overlay> -->
     </div>
     <script src="./static/plugins/jquery-3.2.1.min.js"></script>
     <script src="./static/plugins/vue.min.js"></script>
