@@ -12,8 +12,8 @@ new Vue({
   created() {
     this.uinfo = Cache.get('uinfo');
     if(!this.uinfo){
-      // window.location.href = HOST + '/index.html'
-      // return
+      window.location.href = HOST + '/index.html'
+      return
     }
     this.height = window.innerHeight + 'px';
     this.initData()

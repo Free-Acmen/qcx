@@ -1,5 +1,5 @@
-var HOST='https://m.qianchengxiao.com'
-var baseUrl = 'https://amzs.esells.cn/api/'
+var HOST='http://192.168.1.103:8000'
+var baseUrl = 'http://122.51.133.88:5002/api/'
 var Interface = {
   'getSelData': {
     url: 'HYJY/Paths/GetNextPaths',

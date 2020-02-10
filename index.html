@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="./static/css/reset.css">
     <link rel="stylesheet" href="./static/plugins/vant/index.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.4/lib/index.css"> -->
-    <link rel="stylesheet" href="./static/css/common.css">
-    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="stylesheet" href="./static/css/common.css?ver=12456">
+    <link rel="stylesheet" href="./static/css/index.css?ver=12457">
     <title>前程校</title>
     <script>
       (function(doc, win) {
@@ -31,10 +31,11 @@
     <noscript>
       <strong>We're sorry but ruiyun doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app" :style="{height: height}" v-cloak>
+    <div id="app" :style="{'min-height': height}" v-cloak>
       <div>
         <img src="./static/images/banner.png" alt="" style="width: 100%;height: auto;">  
       </div>
+      {{height}}
       <section class="section">
         <div class="sel-content">
           <van-cell @click="cellHandel('city')" title="省市" is-link :value="city||'请选择省市'"></van-cell>
@@ -91,7 +92,7 @@
     <script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vant@2.4/lib/vant.min.js"></script> -->
-    <script src="./static/js/common.js"></script>
-    <script src="./static/js/index.js"></script>
+    <script src="./static/js/common.js?ver=12456"></script>
+    <script src="./static/js/index.js?ver=12456"></script>
   </body>
 </html>
