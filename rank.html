@@ -87,11 +87,26 @@
         <div class="remark">
           注: 此报告生成时间为{{userInfo.RankTime}}
         </div>
+        <div :style="{height: listHeight}" style="overflow: auto;font-size:.14rem;">
+          <van-list
+            v-model="loading"
+            :finished="finished"
+            finished-text=""
+            @load="onLoad"
+          >
+            <van-row  v-for="item in list" :key="item" style="margin-bottom: 8px;">
+              <van-col span="6">{{item.RealName}}</van-col>
+              <van-col span="10">总分: {{item.TotalGrade}}</van-col>
+              <van-col span="8">{{item.UserName}}</van-col>
+              <!-- <van-col span="24">{{item.Grades}}</van-col> -->
+            </van-row>
+          </van-list>
+        </div>
       </section>
       <footer class="footer">
         <div class="btn btn-group">
           <div class="item" style="margin-right: 5px;">
-            <van-button @click="updateHandle" type="info" block round>更新排名</van-button>
+            <van-button @click="updateHandle" type="info" block round>免费复试导学课</van-button>
           </div>
           <div class="item" style="margin-left: 5px;">
             <van-button @click="communicationHandle" type="info" block round>复试/二战交流群</van-button>

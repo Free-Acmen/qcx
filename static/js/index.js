@@ -70,6 +70,9 @@ new Vue({
         }
       })
     },
+    bannerLink: function(){
+      window.location.href = 'https://mp.weixin.qq.com/s/Qz96y24qaWKsn6SYt6ODxA'
+    },
     cellHandel: function(key, dataKey){
       var that = this
       this.resetFlag()

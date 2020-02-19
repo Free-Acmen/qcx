@@ -1,43 +1,15 @@
 var HOST='https://m.qianchengxiao.com'
-var baseUrl = 'https://amzs.esells.cn/api/'
+var baseUrl = 'http://122.51.133.88:5002/api/'
 var Interface = {
+  'getWxConfig': {
+    url: 'HYJY/Paths/GetWxConfig',
+    method: 'post'
+  },
   'getSelData': {
     url: 'HYJY/Paths/GetNextPaths',
     method: 'post'
   },
-  // 'city': {//省市
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
-  // 'colleges': {//院校
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
-  // 'system': {//院系
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
-  // 'major': {//专业
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
-  // 'direction': {
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
-  // 'subject': {//科目
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
-  // 'submit': {// 首页提交接口
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
-  // 'getUserInfo': {// 报考信息页面获取用户学院信息接口
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
-  'getCode': {// 报考信息页面获取验证码
+    'getCode': {// 报考信息页面获取验证码
     url: 'HYJY/Paths/GetCode',
     method: 'post'
   },
@@ -47,6 +19,10 @@ var Interface = {
   },
   'getRank': {//排名页面数据
     url: 'HYJY/Paths/GetInfo',
+    method: 'post'
+  },
+  'getRankList': {
+    url: 'HYJY/Paths/GetUsers',
     method: 'post'
   }
 }
@@ -161,4 +137,59 @@ var Cache = {
 
 Vue.prototype.ajax = PFunc.ajax
 Vue.prototype.cache = Cache
+
+PFunc.ajax('getWxConfig', '', 1).then(function(res){
+  wx.config({
+    debug: true, 
+    appId: res.data.appId, // 必填，公众号的唯一标识
+    timestamp: res.data.timestamp, // 必填，生成签名的时间戳
+    nonceStr: res.data.nonceStr, // 必填，生成签名的随机串
+    signature: res.data.signature,// 必填，签名
+    jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData', 'onMenuShareWeibo'] // 必填，需要使用的JS接口列表
+  });
+
+  wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
+    var shareConfig = {
+      link: window.location.href,
+      title: '前程校2020考研初试排名查询',
+      desc: '我刚在这里查询了考研初试排名，很好用，你也来查一下吧！知己知彼，复试无忧！',
+      imgUrl: '../images/logo@300px.png'
+    }
+
+    wx.updateAppMessageShareData({ 
+      title: shareConfig.title, // 分享标题
+      desc: shareConfig.desc, // 分享描述
+      link: shareConfig.link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+      imgUrl: shareConfig.imgUrl, // 分享图标
+      success: function () {
+        // 设置成功
+      }
+    })
+  
+    wx.updateTimelineShareData({ 
+      title: shareConfig.title, // 分享标题
+      link: shareConfig.link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+      imgUrl: shareConfig.imgUrl, // 分享图标
+      success: function () {
+        // 设置成功
+      }
+    })
+  
+    wx.onMenuShareWeibo({
+      title: shareConfig.title, // 分享标题
+      desc: shareConfig.desc, // 分享描述
+      link: shareConfig.link, // 分享链接
+      imgUrl: shareConfig.imgUrl, // 分享图标
+      success: function () {
+      // 用户确认分享后执行的回调函数
+      },
+      cancel: function () {
+      // 用户取消分享后执行的回调函数
+      }
+    });
+  }); 
+})
+
+
+
 
