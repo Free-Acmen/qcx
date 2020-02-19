@@ -42,11 +42,11 @@ new Vue({
     var sPaths = Cache.get('s-paths');
     var rank = Cache.get('rank');
     if(rank){
-      window.location.href = HOST + '/rank.html'
+      window.location.href =  './rank.html'
       return
     }
     if(sPaths){
-      window.location.href = HOST + '/grade.html'
+      window.location.href =  './grade.html'
       return
     }
 
@@ -69,9 +69,9 @@ new Vue({
           that.cityList = arr
         }
       })
-    },
-    bannerLink: function(){
-      window.location.href = 'https://mp.weixin.qq.com/s/Qz96y24qaWKsn6SYt6ODxA'
+      },
+    bannerLink: function () {
+        window.location.href = 'https://mp.weixin.qq.com/s/Qz96y24qaWKsn6SYt6ODxA'
     },
     cellHandel: function(key, dataKey){
       var that = this
@@ -154,7 +154,7 @@ new Vue({
         p6: { id: subjectKey[this.subject].id, name: this.subject}
       }
       Cache.set("s-paths", data);
-      window.location.href = HOST + '/grade.html'
+      window.location.href =  './grade.html'
 
       // var data = {
       //   Location: 'US'

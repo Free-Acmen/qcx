@@ -34,11 +34,11 @@
   background: #fff;
   display: flex;
   padding: 0 .15rem;
-  height: .45rem;
-  line-height: .45rem;
+  height: .65rem;
+  line-height: .65rem;
   color: #1A1651;
   justify-content: space-between;
-  margin-bottom: .08rem; 
+  margin-bottom: .10rem; 
   align-items: center;
 }
 
@@ -50,8 +50,8 @@
 .grade-field .field-val{
   width: 1.2rem;
   padding-left: .15rem;
-  height: .3rem;
-  line-height: .3rem;
+  height: .4rem;
+  line-height: .4rem;
   background: #F7F3FF;
   border-radius: .3rem;
   display: flex;
@@ -65,10 +65,10 @@
   width: 70%;
   height: 90%;
   display: inline-block;
-  line-height: .29rem;
+  line-height: .39rem;
   background: #F7F3FF;
   /* vertical-align: middle; */
-  font-size: .2rem;
+  font-size: .23rem;
 }
 
 .grade-field .field-val .van-cell__value{
@@ -80,7 +80,8 @@
 .grade-field .field-val .van-cell .van-field__control{
   color: #416DEF;
   height: 100%;
-  line-height: .22rem;
+  line-height: .20rem
+
 }
 .grade-field .field-val .append{
   font-size: .15rem;

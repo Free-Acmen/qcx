@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./static/plugins/vant/index.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.4/lib/index.css"> -->
     <link rel="stylesheet" href="./static/css/common.css?ver=12456">
-    <link rel="stylesheet" href="./static/css/grade.css?ver=12456">
+    <link rel="stylesheet" href="./static/css/grade.css?ver=123458">
     <title>初试成绩</title>
     <script>
       (function(doc, win) {
@@ -17,10 +17,9 @@
         resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
         recalc = function() {
             var clientWidth = docEl.clientWidth;
-		        clientWidth = clientWidth < 375 ? 375 : (clientWidth > 750 ? 750 : clientWidth);
+            clientWidth = clientWidth < 375 ? 375 : (clientWidth > 750 ? 750 : clientWidth);
             if (!clientWidth) return;
-            docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';
-            console.log(clientWidth, 100 * (clientWidth / 375))
+            docEl.style.fontSize = 100 * (clientWidth / 375/1.3) + 'px';
         };
         if (!doc.addEventListener) return;
         win.addEventListener(resizeEvt, recalc, false);
@@ -109,7 +108,7 @@
     <script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vant@2.4/lib/vant.min.js"></script> -->
-    <script src="./static/js/common.js"></script>
-    <script src="./static/js/grade.js"></script>
+    <script src="./static/js/common.js?ver=12456"></script>
+    <script src="./static/js/grade.js?ver=123458"></script>
   </body>
 </html>

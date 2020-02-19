@@ -19,9 +19,9 @@ new Vue({
   },
   created() {
     this.sPaths = Cache.get('s-paths');
-    if(!this.sPaths){
-      window.location.href = HOST + '/index.html'
-      return
+    if (!this.sPaths) {
+        window.location.href = './index.html'
+        return
     }
     this.height = window.innerHeight + 'px';
     this.initData()
@@ -85,9 +85,9 @@ new Vue({
         grades: this.grades
       }
       console.log(data)
-      this.ajax('complete', data).then(function(res){
+      this.ajax('complete', data,1).then(function(res){
         Cache.set("uinfo", res.data);
-        window.location.href = HOST + '/rank.html'
+        window.location.href = './rank.html'
       })
     },
     getCode: function(){
@@ -132,7 +132,7 @@ new Vue({
         Cache.clear("s-paths");
         Cache.clear("uinfo");
         Cache.clear("rank");
-        window.location.href = HOST + '/index.html'
+        window.location.href =  './index.html'
       }).catch(() => {
         // on cancel
       });

@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
@@ -9,168 +9,164 @@
     <link rel="stylesheet" href="./static/css/reset.css">
     <link rel="stylesheet" href="./static/plugins/vant/index.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.4/lib/index.css"> -->
-    <link rel="stylesheet" href="./static/css/common.css">
-    <link rel="stylesheet" href="./static/css/rank.css">
+    <link rel="stylesheet" href="./static/css/common.css?ver=12456">
+    <link rel="stylesheet" href="./static/css/rank.css?ver=123457">
     <title>前程校2020考研初试排名查询</title>
     <script>
-      (function(doc, win) {
-        var docEl = doc.documentElement,
-        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-        recalc = function() {
-            var clientWidth = docEl.clientWidth;
-		        clientWidth = clientWidth < 375 ? 375 : (clientWidth > 750 ? 750 : clientWidth);
-            if (!clientWidth) return;
-            docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';
-        };
-        if (!doc.addEventListener) return;
-        win.addEventListener(resizeEvt, recalc, false);
-        doc.addEventListener('DOMContentLoaded', recalc, false);
-      })(document, window);
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    clientWidth = clientWidth < 375 ? 375 : (clientWidth > 750 ? 750 : clientWidth);
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
     </script>
-  </head>
-  <body>
+</head>
+<body>
     <noscript>
-      <strong>We're sorry but ruiyun doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+        <strong>We're sorry but ruiyun doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div style ='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
-      <img src='./static/images/logo@300px.png' />
+    <div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
+        <img src='./static/images/logo@300px.png' />
     </div>
     <div id="app" :style="{height: height}" v-cloak>
-      <div class="grade-info">
-        <div>
-          <label>姓名:</label>
-          <span class="val">{{userInfo.RealName}}</span>
+        <div class="grade-info">
+            <div>
+                <label>姓名:</label>
+                <span class="val">{{userInfo.RealName}}</span>
+            </div>
+            <div>
+                <label>报考院校:</label>
+                <span class="val">{{userInfo.p2name}}</span>
+            </div>
+            <div>
+                <label>报考院系:</label>
+                <span class="val">{{userInfo.p3name}}</span>
+            </div>
+            <div>
+                <label>总分:</label>
+                <span class="val">{{userInfo.TotalGrade/100}}</span>
+            </div>
         </div>
-        <div>
-          <label>报考院校:</label>
-          <span class="val">{{userInfo.p2name}}</span>
-        </div>
-        <div>
-          <label>报考院系:</label>
-          <span  class="val">{{userInfo.p3name}}</span>
-        </div>
-        <div>
-          <label>总分:</label>
-          <span  class="val">{{userInfo.TotalGrade/100}}</span>
-        </div>
-      </div>
-      <section class="section">
-        <div class="tips">
-          温馨提示: 参与排名人数越多排名越准哦~
-          <em @click="share"></em>
-        </div>
-        <div class="rank-info">
-          <van-row gutter="8">
-            <van-col span="8">
-              <div class="rank-type school">
-                <p class="rank-val">{{userInfo.Rank1}}</p>
-                <p class="rank-text">校内排名</p>
-                <p class="rank-total">共{{userInfo.Total1}}人</p>
-              </div>
-            </van-col>
-            <van-col span="8">
-              <div class="rank-type compound">
-                <p class="rank-val">{{userInfo.Rank2}}</p>
-                <p class="rank-text">院内排名</p>
-                <p class="rank-total">共{{userInfo.Total2}}人</p>
-              </div>
-            </van-col>
-            <van-col span="8">
-              <div class="rank-type major">
-                <p class="rank-val">{{userInfo.Rank3}}</p>
-                <p class="rank-text">专业排名</p>
-                <p class="rank-total">共{{userInfo.Total3}}人</p>
-              </div>
-            </van-col>
-          </van-row>
-        </div>
-        <div class="remark">
-          注: 此报告生成时间为{{userInfo.RankTime}}
-        </div>
-        <div :style="{height: listHeight}" style="overflow: auto;font-size:.14rem;">
-          <van-list
-            v-model="loading"
-            :finished="finished"
-            finished-text=""
-            @load="onLoad"
-          >
-            <van-row  v-for="item in list" :key="item" style="margin-bottom: 8px;">
-              <van-col span="6">{{item.RealName}}</van-col>
-              <van-col span="10">总分: {{item.TotalGrade}}</van-col>
-              <van-col span="8">{{item.UserName}}</van-col>
-              <!-- <van-col span="24">{{item.Grades}}</van-col> -->
-            </van-row>
-          </van-list>
-        </div>
-      </section>
-      <footer class="footer">
-        <div class="btn btn-group">
-          <div class="item" style="margin-right: 5px;">
-            <van-button @click="updateHandle" type="info" block round>免费复试导学课</van-button>
-          </div>
-          <div class="item" style="margin-left: 5px;">
-            <van-button @click="communicationHandle" type="info" block round>复试/二战交流群</van-button>
-          </div>
-        </div>
-        <div class="btn">
-          <van-button @click="reset" block round>重新查询</van-button>
-        </div>
-        <!-- <div class="footer-nav">
+        <section class="section">
+            <div class="tips">
+                温馨提示: 参与排名人数越多排名越准哦~
+                <em @click="share"></em>
+            </div>
+            <div class="rank-info">
+                <van-row gutter="8">
+                    <van-col span="8">
+                        <div class="rank-type school">
+                            <p class="rank-val">{{userInfo.Rank2}}</p>
+                            <p class="rank-text">校内排名</p>
+                            <p class="rank-total">共{{userInfo.Total2}}人</p>
+                        </div>
+                    </van-col>
+                    <van-col span="8">
+                        <div class="rank-type compound">
+                            <p class="rank-val">{{userInfo.Rank3}}</p>
+                            <p class="rank-text">院内排名</p>
+                            <p class="rank-total">共{{userInfo.Total3}}人</p>
+                        </div>
+                    </van-col>
+                    <van-col span="8">
+                        <div class="rank-type major">
+                            <p class="rank-val">{{userInfo.Rank4}}</p>
+                            <p class="rank-text">专业排名</p>
+                            <p class="rank-total">共{{userInfo.Total4}}人</p>
+                        </div>
+                    </van-col>
+                </van-row>
+            </div>
+            <div class="remark">
+                注: 此报告生成时间为{{userInfo.RankTime}}
+            </div>
+            <div :style="{height: listHeight}" style="overflow: auto;font-size:.14rem;">
+                <div style="font-size:.12rem;color:#7677EA;">以下为专业总分排名，科目分数详情添加官方微信获取</div>
+
+                <van-list v-model="loading"
+                          :finished="finished"
+                          finished-text=""
+                          @load="onLoad">
+                    <van-row v-for="item in list" :key="item" style="margin-bottom: 8px;">
+                        <van-col span="6">{{item.RealName}}</van-col>
+                        <van-col span="10">总分: {{item.TotalGrade}} </van-col>
+                        <van-col span="8">{{item.UserName}}</van-col>
+                        <!-- <van-col span="24">{{item.Grades}}</van-col> -->
+                    </van-row>
+                </van-list>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="btn btn-group">
+                <div class="item" style="margin-right: 5px;">
+                    <van-button @click="updateHandle" type="info" block round>免费复试导学课</van-button>
+                </div>
+                <div class="item" style="margin-left: 5px;">
+                    <van-button @click="communicationHandle" type="info" block round>复试/二战交流群</van-button>
+                </div>
+            </div>
+            <div class="btn">
+                <van-button @click="reset" block round>重新查询</van-button>
+            </div>
+            <!-- <div class="footer-nav">
           <div class="content">
             <van-icon name="arrow-left" color="#292C29" size="24" style="float: left;"></van-icon>
             <van-icon name="arrow" color="#B5B6BD" size="24" style="float: right;"></van-icon>
           </div>
         </div> -->
-      </footer>
+        </footer>
 
-      <van-popup v-model="update" :close-on-click-overlay="false">
-        <div class="popup-content update">
-          <div class="code">
-            <p class="popup-title">关注公众号 “前程校” 随时获取最新排名</p>
-            <div>
-              <div class="code-img">
-                <img src="./static/images/school.png" alt="logo">
-              </div>
-              <p class="mark-tip">
-                <span class="mark"></span>
-                长按识别二维码
-              </p>
+        <van-popup v-model="update" :close-on-click-overlay="false">
+            <div class="popup-content update">
+                <div class="code">
+                    <p class="popup-title">关注公众号 “前程校” 随时获取最新排名</p>
+                    <div>
+                        <div class="code-img">
+                            <img src="./static/images/1.jpg" alt="logo">
+                        </div>
+                        <p class="mark-tip">
+                            <span class="mark"></span>
+                            长按识别二维码
+                        </p>
+                    </div>
+                </div>
+                <span class="close" @click="update=false"></span>
             </div>
-          </div>
-          <span class="close" @click="update=false"></span>
-        </div>
-      </van-popup>
+        </van-popup>
 
-      <van-popup v-model="communication" :close-on-click-overlay="false">
-        <div class="popup-content communication">
-          <div class="code">
-            <p class="popup-title">添加 “前程校” 客服微信拉你进交流群</p>
-            <div>
-              <div class="code-img">
-                <img src="./static/images/school.png" alt="logo">
-              </div>
-              <p class="mark-tip">
-                <span class="mark"></span>
-                长按识别二维码
-              </p>
+        <van-popup v-model="communication" :close-on-click-overlay="false">
+            <div class="popup-content communication">
+                <div class="code">
+                    <p class="popup-title">添加 “前程校” 客服微信拉你进交流群</p>
+                    <div>
+                        <div class="code-img">
+                            <img src="./static/images/2.jpg" alt="logo">
+                        </div>
+                        <p class="mark-tip">
+                            <span class="mark"></span>
+                            长按识别二维码
+                        </p>
+                    </div>
+                </div>
+                <span class="close" @click="communication = false"></span>
             </div>
-          </div>
-          <span class="close" @click="communication = false"></span>
-        </div>
-      </van-popup>
+        </van-popup>
 
-      <!-- <van-overlay :show="show" @click="show=false"> -->
-        <div class="share-wrapper" v-if="show" @click="show=false">
-          <div class="block">
-            <div style="overflow: hidden;">
-              <img src="./static/images/arrow.png" alt="右上角">
+        <div class="share-wrapper" v-show="shareFlag" @click="shareFlag = false">
+            <div class="share-block">
+                <div style="overflow: hidden;">
+                    <img src="./static/images/arrow.png" alt="右上角">
+                </div>
+                <div>请点击右上角分享</div>
             </div>
-            <div>
-              请点击右上角分享
-            </div>
-          </div>
         </div>
-      <!-- </van-overlay> -->
     </div>
     <script src="./static/plugins/jquery-3.2.1.min.js"></script>
     <script src="./static/plugins/vue.min.js"></script>
@@ -179,7 +175,7 @@
     <script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vant@2.4/lib/vant.min.js"></script> -->
-    <script src="./static/js/common.js"></script>
-    <script src="./static/js/rank.js"></script>
-  </body>
+    <script src="./static/js/common.js?ver=1245645"></script>
+    <script src="./static/js/rank.js?ver=123473"></script>
+</body>
 </html>
