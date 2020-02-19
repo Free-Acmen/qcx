@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 var HOST='https://m.qianchengxiao.com'
+=======
+var HOST='http://192.168.1.103:8000'
+>>>>>>> e97553672b9fd19ce50130d602eb656291f0186a
 var baseUrl = 'http://122.51.133.88:5002/api/'
 var Interface = {
   'getWxConfig': {

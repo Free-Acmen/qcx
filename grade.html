@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="./static/css/reset.css">
     <link rel="stylesheet" href="./static/plugins/vant/index.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.4/lib/index.css"> -->
-    <link rel="stylesheet" href="./static/css/common.css">
-    <link rel="stylesheet" href="./static/css/grade.css">
+    <link rel="stylesheet" href="./static/css/common.css?ver=12456">
+    <link rel="stylesheet" href="./static/css/grade.css?ver=12456">
     <title>初试成绩</title>
     <script>
       (function(doc, win) {
@@ -20,6 +20,7 @@
 		        clientWidth = clientWidth < 375 ? 375 : (clientWidth > 750 ? 750 : clientWidth);
             if (!clientWidth) return;
             docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';
+            console.log(clientWidth, 100 * (clientWidth / 375))
         };
         if (!doc.addEventListener) return;
         win.addEventListener(resizeEvt, recalc, false);
