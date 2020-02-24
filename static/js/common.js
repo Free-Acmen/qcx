@@ -1,44 +1,24 @@
-var HOST ='http://122.51.133.88:8099'
-var baseUrl = 'http://122.51.133.88:5002/api/'
+var HOST ='//adm.kaoyanxiao.com:8099'
+var baseUrl = '//adm.kaoyanxiao.com/api/'
 var Interface = {
   'getSelData': {
     url: 'HYJY/Paths/GetNextPaths',
     method: 'post'
   },
-  // 'city': {//省市
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
-  // 'colleges': {//院校
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
-  // 'system': {//院系
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
-  // 'major': {//专业
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
-  // 'direction': {
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
-  // 'subject': {//科目
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
-  // 'submit': {// 首页提交接口
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
-  // 'getUserInfo': {// 报考信息页面获取用户学院信息接口
-  //   url: 'AMZDS/SpiderAsin/getPage',
-  //   method: 'post'
-  // },
+  'checkTel': {//验证手机号是否存在
+    url: 'HYJY/Paths/CheckTel',
+    method: 'post'
+  },
+  'sendVCodeLogin': {// 报考信息页面获取验证码
+    url: 'HYJY/Paths/SendVCodeLogin',
+    method: 'post'
+  },
+  'getInfoExist': {// 报考信息页面获取验证码
+    url: 'HYJY/Paths/GetInfoExist',
+    method: 'post'
+  },
   'getCode': {// 报考信息页面获取验证码
-      url: 'HYJY/Paths/SendVCode',
+    url: 'HYJY/Paths/SendVCode',
     method: 'post'
   },
   'complete': {//验证码填写完成接口

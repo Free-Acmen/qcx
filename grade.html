@@ -31,7 +31,7 @@
     <noscript>
       <strong>We're sorry but ruiyun doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app" :style="{height: height}" v-cloak>
+    <div id="app" :style="{'min-height': height}" v-cloak>
       <div class="grade-info">
         <div class="title">
           <!-- <em class="bg-img"></em> -->
@@ -64,8 +64,15 @@
             <span class="append">分</span>
           </div>
         </div>
+        <span >上传成绩截图</span>
+
+        <div style="margin-top: 6px;">
+          <van-uploader  v-model="fileList" :after-read="afterRead" :max-count="1" :max-size="5*1024*1024" accept="image/*, .jpg, .jpeg, .png" @oversize="overSize">
+            <!-- <van-button icon="photo" type="primary" plain block round>上传成绩截图</van-button> -->
+          </van-uploader>
+        </div>
       </section>
-      <footer class="footer">
+      <footer class="footer" style="position: relative;">
         <div class="btn">
           <van-button @click="queryHandle" type="info" block round>查询排名</van-button>
         </div>
@@ -108,7 +115,7 @@
     <script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vant@2.4/lib/vant.min.js"></script> -->
-    <script src="./static/js/common.js?ver=12456"></script>
-    <script src="./static/js/grade.js?ver=123458"></script>
+    <script src="./static/js/common.js?ver=122336"></script>
+    <script src="./static/js/grade.js?ver=2322241"></script>
   </body>
 </html>

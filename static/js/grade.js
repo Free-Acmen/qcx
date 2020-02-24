@@ -10,6 +10,8 @@ new Vue({
         {id: '2', name:'(101)思想政治理论', grade:''},
         {id: '3', name:'(101)思想政治理论', grade:''}
       ],
+      fileList: [],
+      imgUrl:'',
       show: false,
       phone: '',
       code: '',
@@ -31,14 +33,7 @@ new Vue({
       var that=this
       if(this.sPaths){
         var id = this.sPaths.p6.id
-        // var data = {Location: "US"}
         this.ajax('getSelData', id, 1).then(function(res){
-          // res = {"resultCode":100,"message":null,"success":true,
-          // "data":[{"id":"1","rid":"1","name":"(101)思想政治理论","pid":"0","prid":"0","pname":"N/A","level":1,"isSmall":false,"CreateTime":null},
-          // {"id":"2","rid":"1","name":"(101)思想政治理论","pid":"0","prid":"0","pname":"N/A","level":1,"isSmall":false,"CreateTime":null},
-          // {"id":"3","rid":"1","name":"(101)思想政治理论","pid":"0","prid":"0","pname":"N/A","level":1,"isSmall":false,"CreateTime":null}
-          // ]
-          // }
           if(res.data){
             var arr = []
             res.data.forEach(item => {
@@ -53,6 +48,46 @@ new Vue({
         })
       }
     },
+    overSize: function(file){
+      vant.Notify({ type: 'warning', message: '图片过大，请上传小于5M的图片' });
+    },
+    afterRead(file) {
+      file.status = 'uploading';
+      file.message = '上传中...';
+      // 此时可以自行将文件上传至服务器
+      // console.log(file);
+      var formData = new FormData();
+      formData.append('file', file.file);
+      formData.append('name', file.file.name);
+
+      var that = this;
+      var url = "//adm.kaoyanxiao.com/api/File/UploadFiles"
+      // url = "http://192.168.7.80:5002/api/File/UploadFiles"
+
+      $.ajax({
+        url: url,
+        type: "post",
+        data: formData,
+        contentType: false,
+        processData: false,
+        mimeType: "multipart/form-data",
+        headers: {
+          Accept: "*/*;q=0.8"
+        },
+        success: function (data) {
+          data = JSON.parse(data)
+          // console.log(data)
+          file.status = 'done';
+          file.message = '上传成功';
+
+          that.imgUrl = data.data[0].FilePath
+        },
+        error: function (data) {
+          file.status = 'failed';
+          file.message = '上传失败';
+        }
+      });
+    },
     queryHandle: function(){
       var flag = true
       // console.log(this.grades, this.name)
@@ -61,14 +96,14 @@ new Vue({
           flag = false
         }
       })
-      if(!flag || !this.name){
+      if(!flag || !this.name || this.fileList.length <=0){
         vant.Notify({ type: 'danger', message: '请先填写完整信息在查询！' });        
         return
       }
       this.show = true
     },
     completeHandle: function(){
-      if(!this.phone || !(/^1[34578]\d{9}$/.test(this.phone))){
+      if(!this.phone || !(/^1[345678]\d{9}$/.test(this.phone))){
         vant.Notify({ type: 'warning', message: '请先输入正确的手机号' });
         return
       }
@@ -82,9 +117,10 @@ new Vue({
         code: this.code,
         name: this.name,
         spath: this.sPaths,
-        grades: this.grades
+        grades: this.grades,
+        image: this.imgUrl
       }
-      console.log(data)
+      // console.log(data)
       this.ajax('complete', data,1).then(function(res){
         Cache.set("uinfo", res.data);
         window.location.href = './rank.html'
@@ -95,7 +131,7 @@ new Vue({
       if(this.isdisabled){
         return
       }
-      if(!this.phone || !(/^1[34578]\d{9}$/.test(this.phone))){
+      if(!this.phone || !(/^1[345678]\d{9}$/.test(this.phone))){
         vant.Notify({ type: 'warning', message: '请先输入正确的手机号' });
         return
       }

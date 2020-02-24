@@ -132,4 +132,11 @@
   right: .2rem; */
   margin-top: .3rem;
 }
+
+.van-uploader{
+  width: 100%;
+}
+.van-uploader__input-wrapper{
+  width: 100%;
+}
   

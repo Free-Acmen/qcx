@@ -3,6 +3,7 @@ new Vue({
   data: function(){
     return {
       height: '568px',
+      footHeight: '1.12rem',
       update: false,
       communication: false,
       shareFlag: false,
@@ -23,17 +24,17 @@ new Vue({
     this.initData()
     },
     mounted() {
-        setTimeout(() => {
-
-            var listHeight = window.innerHeight - $(".grade-info").outerHeight() - $(".footer").outerHeight() - $(".tips").outerHeight() - $(".rank-info").outerHeight() - $(".remark").outerHeight();
-            this.listHeight = listHeight - 38 + 'px';
+      var that = this
+        setTimeout(function() {
+            // var listHeight = window.innerHeight - $(".grade-info").outerHeight() - $(".footer").outerHeight() - $(".tips").outerHeight() - $(".rank-info").outerHeight() - $(".remark").outerHeight();
+            // this.listHeight = listHeight - 38 + 'px';
+            that.footHeight = $(".footer").outerHeight() + 10 + 'px'
         }, 100);
     },
   methods: {
     initData: function(){
       var that = this
       this.ajax('getRank', this.uinfo, 1).then(function(res){
-        
         that.userInfo = res.data
         Cache.set("rank", res.data);
       })
@@ -44,6 +45,7 @@ new Vue({
              
               that.loading = false;
               that.list = res.data
+              
               that.finished = true;
 
           })
