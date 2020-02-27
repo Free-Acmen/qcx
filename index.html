@@ -33,14 +33,14 @@
     </noscript>
     <div id="app" :style="{height: height}" v-cloak>
       <div>
-          <van-swipe :autoplay="3000" indicator-color="white">
-              <van-swipe-item @click="bannerLink">
-                  <img src="./static/images/banner.png" alt="" style="width: 100%;height: auto;">
-              </van-swipe-item>
-              <van-swipe-item @click="bannerLink">
-                  <img src="./static/images/banner2.png" alt="" style="width: 100%;height: auto;">
-              </van-swipe-item>
-          </van-swipe>  
+        <van-swipe :autoplay="3000" indicator-color="white">
+          <van-swipe-item @click="bannerLink(1)">
+              <img src="./static/images/banner3.png" alt="" style="width: 100%;height: auto;">
+          </van-swipe-item>
+          <van-swipe-item @click="bannerLink(2)">
+              <img src="./static/images/banner2.png" alt="" style="width: 100%;height: auto;">
+          </van-swipe-item>
+        </van-swipe>  
       </div>
       <section class="section">
         <div class="sel-content">
@@ -121,6 +121,6 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vant@2.4/lib/vant.min.js"></script> -->
     <script src="./static/js/common.js?ver=12762456"></script>
-    <script src="./static/js/index.js?ver=13324678"></script>
+    <script src="./static/js/index.js?ver=1332611178"></script>
   </body>
 </html>
