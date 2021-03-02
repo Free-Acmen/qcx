@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
     <!-- <link rel="icon" href="./static/images/favicon.ico"> -->
     <meta name="description" content="1分钟填写初试拟排名，抢占复试备考先机！" />
-    <link rel="stylesheet" href="./static/css/reset.css">
-    <link rel="stylesheet" href="./static/plugins/vant/index.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/plugins/vant/index.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.4/lib/index.css"> -->
-    <link rel="stylesheet" href="./static/css/common.css?ver=12456">
-    <link rel="stylesheet" href="./static/css/rank.css?ver=123457">
-    <title>2021年全国考研初试拟排名系统</title>
+    <link rel="stylesheet" href="../static/css/common.css?ver=12456">
+    <link rel="stylesheet" href="../static/css/rank.css?ver=123457">
+    <title>2021华南师范大学初试拟排名系统</title>
     <script>
         (function (doc, win) {
             var docEl = doc.documentElement,
@@ -33,7 +33,7 @@
         <strong>We're sorry but ruiyun doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
-        <img src='./static/images/logo@300px.png' />
+        <img src='../static/images/logo@300px.png' />
     </div>
     <div id="app" :style="{'padding-bottom': footHeight}" v-cloak>
         <div class="grade-info">
@@ -117,10 +117,10 @@
         <footer class="footer" style="position: fixed;background: #F7F3FF;">
             <div class="btn btn-group">
                 <div class="item" style="margin-right: 5px;">
-                    <van-button style="padding: 0 5px;" @click="updateHandle" type="info" block round>英语翻硕复试群</van-button>
+                    <van-button style="padding: 0 5px;" @click="updateHandle" type="info" block round>复试/二战交流群1</van-button>
                 </div>
                 <div class="item" style="margin-left: 5px;">
-                    <van-button style="padding: 0 5px;" @click="communicationHandle" type="info" block round>复试/二战交流群</van-button>
+                    <van-button style="padding: 0 5px;" @click="communicationHandle" type="info" block round>复试/二战交流群2</van-button>
                 </div>
             </div>
             <div class="btn">
@@ -137,10 +137,10 @@
         <van-popup v-model="update" :close-on-click-overlay="false">
             <div class="popup-content update">
                 <div class="code">
-                    <p class="popup-title">添加下方微信进英语翻译硕士复试群</p>
+                    <p class="popup-title">添加下方微信进复试群1</p>
                     <div>
                         <div class="code-img">
-                            <img src="./static/images/11.jpg" alt="logo">
+                            <img src="./img/15-11065-code-1.png" alt="logo">
                         </div>
                         <p class="mark-tip">
                             <span class="mark"></span>
@@ -158,7 +158,7 @@
                     <p class="popup-title">添加下方微信进复试群2</p>
                     <div>
                         <div class="code-img">
-                            <img src="./static/images/22.jpg" alt="logo">
+                            <img src="../static/images/2.png" alt="logo">
                         </div>
                         <p class="mark-tip">
                             <span class="mark"></span>
@@ -173,20 +173,20 @@
         <div class="share-wrapper" v-show="shareFlag" @click="shareFlag = false">
             <div class="share-block">
                 <div style="overflow: hidden;">
-                    <img src="./static/images/arrow.png" alt="右上角">
+                    <img src="../static/images/arrow.png" alt="右上角">
                 </div>
                 <div>请点击右上角分享</div>
             </div>
         </div>
     </div>
-    <script src="./static/plugins/jquery-3.2.1.min.js"></script>
-    <script src="./static/plugins/vue.min.js"></script>
-    <script src="./static/plugins/vant/vant.min.js"></script>
+    <script src="../static/plugins/jquery-3.2.1.min.js"></script>
+    <script src="../static/plugins/vue.min.js"></script>
+    <script src="../static/plugins/vant/vant.min.js"></script>
     <!-- 微信sdk文件，调用微信接口功能 -->
     <script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vant@2.4/lib/vant.min.js"></script> -->
-    <script src="./static/js/common.js?ver=1235645"></script>
-    <script src="./static/js/rank.js?ver=12342122273"></script>
+    <script src="../static/js/common.js?ver=1235645"></script>
+    <script src="./rank.js?ver=1231242273"></script>
 </body>
 </html>

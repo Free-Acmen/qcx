@@ -6,12 +6,10 @@ var majorKey = {};
 var directionKey = {};
 var subjectKey = {};
 
-
 new Vue({
   el: '#app',
   data: function(){
     return {
-      params:{},
       height: '568px',
       cityFlag: false,
       collegesFlag: false,
@@ -41,8 +39,6 @@ new Vue({
     }
   },
   created() {
-    console.log(PFunc.getUrlParams())
-    this.params = PFunc.getUrlParams()||{}
     var sPaths = Cache.get('s-paths');
     var rank = Cache.get('rank');
     if(rank){
@@ -166,7 +162,7 @@ new Vue({
     },
     //验证逻辑
     completeHandle: function(){
-      if(!this.phone || !(/^1[3456789]\d{9}$/.test(this.phone))){
+      if(!this.phone || !(/^1[345678]\d{9}$/.test(this.phone))){
         vant.Notify({ type: 'warning', message: '请先输入正确的手机号' });
         return
       }

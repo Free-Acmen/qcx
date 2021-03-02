@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <!-- <link rel="icon" href="./static/images/favicon.ico"> -->
+    <link rel="stylesheet" href="./static/css/reset.css">
+    <link rel="stylesheet" href="./static/plugins/vant/index.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.4/lib/index.css"> -->
+    <link rel="stylesheet" href="./static/css/common.css?ver=12456">
+    <link rel="stylesheet" href="./static/css/grade.css?ver=123458">
+    <title>初试成绩</title>
+    <script>
+      (function(doc, win) {
+        var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            clientWidth = clientWidth < 375 ? 375 : (clientWidth > 750 ? 750 : clientWidth);
+            if (!clientWidth) return;
+            docEl.style.fontSize = 100 * (clientWidth / 375/1.3) + 'px';
+        };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+      })(document, window);
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but ruiyun doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app" :style="{'min-height': height}" v-cloak>
+      <div class="grade-info">
+        <div class="title">
+          <!-- <em class="bg-img"></em> -->
+          <span>报考信息</span>
+        </div>
+        <div>
+          <label>报考院校:</label>
+          <span class="val">{{sPaths && sPaths.p2.name}}</span>
+        </div>
+        <div>
+          <label>报考院系:</label>
+          <span  class="val">{{sPaths && sPaths.p3.name}}</span>
+        </div>
+        <div>
+          <label>报考专业:</label>
+          <span  class="val">{{sPaths && sPaths.p4.name}}</span>
+        </div>
+      </div>
+      <section class="section">
+        <div class="grade-field">
+          <label style="width: .9rem;">姓名</label>
+          <div class="field-val" style="width: 1.6rem;">
+            <van-field v-model="name"></van-field>
+          </div>
+        </div>
+        <div class="grade-field" v-for="(item, index) in grades" :key="index">
+          <label>{{item.name}}</label>
+          <div class="field-val">
+            <van-field type="number" v-model="item.grade"></van-field>
+            <span class="append">分</span>
+          </div>
+        </div>
+        <span >上传成绩截图</span>
+
+        <div style="margin-top: 6px;">
+          <van-uploader  v-model="fileList" :after-read="afterRead" :max-count="1" :max-size="5*1024*1024" accept="image/*, .jpg, .jpeg, .png" @oversize="overSize">
+            <!-- <van-button icon="photo" type="primary" plain block round>上传成绩截图</van-button> -->
+          </van-uploader>
+        </div>
+      </section>
+      <footer class="footer" style="position: relative;">
+        <div class="btn">
+          <van-button @click="queryHandle" type="info" block round>查询排名</van-button>
+        </div>
+        <div class="btn">
+          <van-button @click="reset" block round>重新查询</van-button>
+        </div>
+        <!-- <div class="footer-nav">
+          <div class="content">
+            <van-icon name="arrow-left" color="#292C29" size="24" style="float: left;"></van-icon>
+            <van-icon name="arrow" color="#B5B6BD" size="24" style="float: right;"></van-icon>
+          </div>
+        </div> -->
+      </footer>
+
+      <van-popup v-model="show" position="bottom" :style="{ height: '380px' }">
+        <div class="bind-phone">
+          <div class="bind-title">
+            <span></span>
+            前程校
+          </div>
+          <div class="phone-numb">绑定手机号码</div>
+          <div class="numb-field">
+            <van-field type="digit" v-model="phone" placeholder="请输入您的手机号" clearable></van-field>
+          </div>
+          <div class="numb-code">
+            <van-field v-model="code" center clearable placeholder="短信验证码">
+              <van-button @click="getCode" slot="button" size="small" type="primary">{{codeText}}</van-button>
+            </van-field>
+          </div>
+          <div class="bind-btn">
+            <van-button @click="completeHandle" type="info" block round>完成</van-button>
+          </div>
+        </div>
+      </van-popup>
+    </div>
+    <script src="./static/plugins/jquery-3.2.1.min.js"></script>
+    <script src="./static/plugins/vue.min.js"></script>
+    <script src="./static/plugins/vant/vant.min.js"></script>
+    <!-- 微信sdk文件，调用微信接口功能 -->
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vant@2.4/lib/vant.min.js"></script> -->
+    <script src="./static/js/common.js?ver=122336"></script>
+    <script src="./static/js/grade.js?ver=2322241"></script>
+  </body>
+</html>

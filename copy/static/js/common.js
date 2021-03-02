@@ -94,22 +94,7 @@ var PFunc = {
       })
       return defer
     }
-  },
-  getUrlParams:function(){
-    if(!window.location.search){
-      return
-    }
-    let searchStr = window.location.search.slice(1)
-    var jumpgoodurlparam = decodeURI(searchStr).split("&")
-    var jumpgoodurlarr = {}
-    jumpgoodurlparam.forEach(item => {
-      let index = item.indexOf('=');
-      let key = item.slice(0, index)
-      let val = item.slice(index+1)
-      jumpgoodurlarr[key] = val
-    })
-    return jumpgoodurlarr
-  },
+  }
 }
 
 var Cache = {

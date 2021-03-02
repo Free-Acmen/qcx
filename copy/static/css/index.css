@@ -1,0 +1,103 @@
+
+.sel-content{
+  margin-bottom: .1rem;
+}
+
+.van-cell__title{
+  font-size: .17rem;
+  font-weight: 500;
+  color: #1A1651;
+  flex: 0 1 1rem;
+}
+.van-cell__value{
+  text-align: left;
+}
+
+.subject-list{
+  padding: .15rem .2rem;
+  font-size: .17rem;
+  color: #1A1651;
+  background: #F7F3FF;
+  height: 100%;
+  position: relative;
+}
+.subject-title{
+  font-size: .18rem;
+  margin-bottom: .15rem;
+  font-weight: 700;
+}
+
+.subject-item{
+  margin-bottom: .1rem;
+  background: #fff;
+  padding: 2% 12% 2% 4%;
+  line-height: .24rem;
+  border-radius: .1rem;
+  position: relative;
+}
+.subject-item .sel{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: .35rem;
+  height: .25rem;
+  background: url("../images/sel.png") 0 0 no-repeat;
+  background-size: cover;  
+}
+.subject-btn{
+  position: absolute;
+  bottom: .3rem;
+  left: .2rem;
+  right: .2rem;
+}
+
+
+.van-picker {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+.bind-phone{
+  padding: .20rem;
+  font-size: .15rem;
+  color: #1A1651;
+  position: relative;
+  height: 100%;
+}
+.bind-phone>div{
+  margin-bottom: .20rem;
+}
+
+.bind-phone .bind-title span{
+  display: inline-block;
+  width: .24rem;
+  height: .24rem;
+  vertical-align: middle;
+  background: url("../images/logo@2x.png") 0 0 no-repeat;
+  background-size: cover; 
+}
+.bind-phone .phone-numb{
+  font-size: .20rem;
+}
+.bind-phone .numb-field{
+  border-bottom: 1px solid #E5E5E5;
+}
+.bind-phone .numb-code{
+  border-bottom: 1px solid #E5E5E5;
+}
+.bind-phone .van-field__control{
+  font-size: .17rem;
+}
+.bind-phone .numb-code .van-button--primary{
+  color: #416DEF;
+  background-color: #fff;
+  border: 1px solid #fff;
+  font-size: .15rem;
+}
+
+.bind-phone .bind-btn{
+  margin-top: .3rem;
+}
+

@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
     <!-- <link rel="icon" href="./static/images/favicon.ico"> -->
-    <link rel="stylesheet" href="./static/css/reset.css">
-    <link rel="stylesheet" href="./static/plugins/vant/index.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/plugins/vant/index.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.4/lib/index.css"> -->
-    <link rel="stylesheet" href="./static/css/common.css?ver=12456">
-    <link rel="stylesheet" href="./static/css/index.css?ver=1245236">
-    <title>前程校</title>
+    <link rel="stylesheet" href="../static/css/common.css?ver=12456">
+    <link rel="stylesheet" href="../static/css/index.css?ver=1245236">
+    <title>2021云南大学初试拟排名系统</title>
     <script>
       (function(doc, win) {
         var docEl = doc.documentElement,
@@ -35,23 +35,25 @@
       <div>
         <van-swipe :autoplay="3000" indicator-color="white">
           <van-swipe-item @click="bannerLink(1)">
-              <img src="./static/images/banner3.png" alt="" style="width: 100%;height: auto;">
+            <img src="../static/images/banner3.png" alt="" style="width: 100%;height: auto;">
+            <!-- <img src="./img/25-10673-1.png" alt="" style="width: 100%;height: auto;"> -->
           </van-swipe-item>
           <!-- <van-swipe-item @click="bannerLink(2)">
-              <img src="./static/images/banner2.png" alt="" style="width: 100%;height: auto;">
+            <img src="./img/25-10673-2.png" alt="" style="width: 100%;height: auto;">
           </van-swipe-item> -->
         </van-swipe>  
       </div>
       <section class="section">
         <div class="sel-content">
-          <van-cell @click="cellHandel('city')" title="省市" is-link :value="city||'请选择省市'"></van-cell>
-          <van-cell @click="cellHandel('colleges', 'city')" title="院校" is-link :value="colleges||'请选择院校'"></van-cell>
+          <van-cell title="省市" :value="city||'请选择省市'"></van-cell>
+          <van-cell title="院校" :value="colleges||'请选择院校'"></van-cell>
+          <!-- <van-cell @click="cellHandel('city')" title="省市" is-link :value="city||'请选择省市'"></van-cell>
+          <van-cell @click="cellHandel('colleges', 'city')" title="院校" is-link :value="colleges||'请选择院校'"></van-cell> -->
           <van-cell @click="cellHandel('system', 'colleges')" title="院系" is-link :value="system||'请选择院系'"></van-cell>
           <van-cell @click="cellHandel('major', 'system')" title="专业" is-link :value="major || '请选择专业'"></van-cell>
           <van-cell @click="cellHandel('direction', 'major')" title="方向" is-link :value="direction ||'请选择方向'"></van-cell>
           <van-cell @click="cellHandel('subject', 'direction')" title="科目" is-link :value="subject||'请选择科目'"></van-cell>
-        </div>
-       
+        </div>       
       </section>
       <footer class="footer">
         <div class="btn">
@@ -113,14 +115,12 @@
       </van-popup>
 
     </div>
-    <script src="./static/plugins/jquery-3.2.1.min.js"></script>
-    <script src="./static/plugins/vue.min.js"></script>
-    <script src="./static/plugins/vant/vant.min.js"></script>
+    <script src="../static/plugins/jquery-3.2.1.min.js"></script>
+    <script src="../static/plugins/vue.min.js"></script>
+    <script src="../static/plugins/vant/vant.min.js"></script>
     <!-- 微信sdk文件，调用微信接口功能 -->
     <script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vant@2.4/lib/vant.min.js"></script> -->
-    <script src="./static/js/common.js?ver=12762456"></script>
-    <script src="./static/js/index.js?ver=1332611178"></script>
+    <script src="../static/js/common.js?ver=12762456"></script>
+    <script src="./index.js?ver=1332611178"></script>
   </body>
 </html>

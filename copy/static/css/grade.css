@@ -1,0 +1,142 @@
+.grade-info{
+  height: 1.56rem;
+  background: url("../images/grade.png") 0 0 no-repeat;
+  background-size: cover; 
+  color: #fff;
+  font-size: .15rem;
+  padding: .1rem .47rem;
+}
+
+.grade-info>div{
+  margin-bottom: .10rem;
+}
+
+.grade-info .title{
+  font-size: .20rem;
+  font-weight: 700;
+  margin-bottom: .15rem;
+  position: relative;
+  background: url("../images/grade.png") 0 0 no-repeat;
+  background-size: cover; 
+}
+
+.grade-info .title::before{
+  content: '';
+  position: absolute;
+  width: .2rem;
+  height: .2rem;
+}
+
+.grade-info .val{
+  padding-left: .05rem;
+}
+.grade-field{
+  background: #fff;
+  display: flex;
+  padding: 0 .15rem;
+  height: .65rem;
+  line-height: .65rem;
+  color: #1A1651;
+  justify-content: space-between;
+  margin-bottom: .10rem; 
+  align-items: center;
+}
+
+.grade-field label{
+  width: 1.6rem;
+  font-size: .17rem;
+}
+
+.grade-field .field-val{
+  width: 1.2rem;
+  padding-left: .15rem;
+  height: .4rem;
+  line-height: .4rem;
+  background: #F7F3FF;
+  border-radius: .3rem;
+  display: flex;
+  align-items: center;
+  /* overflow: hidden; */
+  /* vertical-align: middle; */
+}
+
+.grade-field .field-val .van-cell{
+  padding: 0;
+  width: 70%;
+  height: 90%;
+  display: inline-block;
+  line-height: .39rem;
+  background: #F7F3FF;
+  /* vertical-align: middle; */
+  font-size: .23rem;
+}
+
+.grade-field .field-val .van-cell__value{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.grade-field .field-val .van-cell .van-field__control{
+  color: #416DEF;
+  height: 100%;
+  line-height: .20rem
+
+}
+.grade-field .field-val .append{
+  font-size: .15rem;
+}
+
+.bind-phone{
+  padding: .20rem;
+  font-size: .15rem;
+  color: #1A1651;
+  position: relative;
+  height: 100%;
+}
+.bind-phone>div{
+  margin-bottom: .20rem;
+}
+
+.bind-phone .bind-title span{
+  display: inline-block;
+  width: .24rem;
+  height: .24rem;
+  vertical-align: middle;
+  background: url("../images/logo@2x.png") 0 0 no-repeat;
+  background-size: cover; 
+}
+.bind-phone .phone-numb{
+  font-size: .20rem;
+}
+.bind-phone .numb-field{
+  border-bottom: 1px solid #E5E5E5;
+}
+.bind-phone .numb-code{
+  border-bottom: 1px solid #E5E5E5;
+}
+.bind-phone .van-field__control{
+  font-size: .17rem;
+}
+.bind-phone .numb-code .van-button--primary{
+  color: #416DEF;
+  background-color: #fff;
+  border: 1px solid #fff;
+  font-size: .15rem;
+}
+
+.bind-phone .bind-btn{
+  /* position: absolute;
+  bottom: .2rem;
+  left: .2rem;
+  right: .2rem; */
+  margin-top: .3rem;
+}
+
+.van-uploader{
+  width: 100%;
+}
+.van-uploader__input-wrapper{
+  width: 100%;
+}
+  

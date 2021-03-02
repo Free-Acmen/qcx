@@ -1,17 +1,38 @@
 
-var cityKey = {};
-var collegesKey = {};
+var cityKey = {'北京市':{id: "1", name: "北京市"}};
+var collegesKey = {'北京语言大学':{id: "1-10032", name: "北京语言大学"}};
 var systemKey = {};
 var majorKey = {};
 var directionKey = {};
 var subjectKey = {};
+
+// -- 对外经济贸易大学  惠园教育  1-10036
+// -- 首都经济贸易大学 首经贸考研校 1-10038
+// -- 中国海洋大学 海大考研校 15-10423
+// -- 青岛大学 青大考研校 15-11065
+// -- 天津财经大学 天财考研校  2-10070
+// -- 山东财经大学 山财考研校 15-10456
+// -- 华南师范大学  华南师范考研校  19-10574
+// -- 北京语言大学  北语考研校 1-10032
+// -- 云南大学  云大考研校 25-10673
+
+// https://pm.kaoyanxiao.com/1-10036/index.html
+// https://pm.kaoyanxiao.com/1-10038/index.html
+// https://pm.kaoyanxiao.com/15-10423/index.html
+// https://pm.kaoyanxiao.com/15-11065/index.html
+// https://pm.kaoyanxiao.com/2-10070/index.html
+// https://pm.kaoyanxiao.com/15-10456/index.html
+// https://pm.kaoyanxiao.com/19-10574/index.html
+// https://pm.kaoyanxiao.com/1-10032/index.html
+// https://pm.kaoyanxiao.com/25-10673/index.html
+
 
 
 new Vue({
   el: '#app',
   data: function(){
     return {
-      params:{},
+      // params:{},
       height: '568px',
       cityFlag: false,
       collegesFlag: false,
@@ -20,8 +41,8 @@ new Vue({
       directionFlag: false,
       subjectFlag: false,
       loading: false,
-      city:'',
-      colleges: '',
+      city:'北京市',
+      colleges: '北京语言大学',
       system: '',
       major: '',
       direction: '',
@@ -41,8 +62,6 @@ new Vue({
     }
   },
   created() {
-    console.log(PFunc.getUrlParams())
-    this.params = PFunc.getUrlParams()||{}
     var sPaths = Cache.get('s-paths');
     var rank = Cache.get('rank');
     if(rank){
@@ -73,7 +92,7 @@ new Vue({
           that.cityList = arr
         }
       })
-      },
+    },
     bannerLink: function(flag) {
       if(flag == 1){
         window.location.href = 'https://mp.weixin.qq.com/s/bw1CeITrfb681TuyrFTb8g'

@@ -51,8 +51,8 @@ new Vue({
           })
       },
       updateHandle: function () {
-          this.update = true
-          // window.location.href = 'https://mp.weixin.qq.com/s/ahTUGEGzDIWD_axgh6EdLw'
+          // this.update = true
+          window.location.href = 'https://mp.weixin.qq.com/s/ahTUGEGzDIWD_axgh6EdLw'
       },
     communicationHandle: function(){
       this.communication = true

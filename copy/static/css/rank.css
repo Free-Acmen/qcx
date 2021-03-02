@@ -1,0 +1,167 @@
+.grade-info{
+  height: 1.45rem;
+  background: url("../images/rank.png") 0 0 no-repeat;
+  background-size: cover; 
+  color: #fff;
+  font-size: .15rem;
+  padding: .1rem .47rem;
+}
+.grade-info>div{
+  margin-bottom: .1rem;
+}
+.grade-info .val{
+  padding-left: .05rem;
+}
+
+.section{
+  margin: 0;
+  padding: .1rem .2rem .1rem;
+  background: #fff;
+  font-size: .13rem;
+}
+.section .tips{
+  background: #F7F3FF;
+  color: #416DEF;
+  height: .4rem;
+  line-height: .4rem;
+  padding: 0 .15rem;
+  border-radius: .2rem;
+  border-top-left-radius: 0;
+  margin-bottom: .15rem;
+}
+.section .tips em{
+  display: inline-block;
+  width: .16rem;
+  height: .16rem;
+  background: url("../images/share.png") 0 0 no-repeat;
+  background-size: cover; 
+  vertical-align: middle;
+  margin-left: .15rem;
+}
+
+.rank-type{
+  height: 1.2rem;
+  background: url("../images/school.png") 0 0 no-repeat;
+  background-size: cover; 
+  border-radius: .1rem;
+  color: #7677EA;
+  text-align: center;
+}
+
+.rank-type .rank-val{
+  font-size: .35rem;
+  margin-bottom: .08rem;
+  padding-top: .16rem;
+  font-weight: 700;
+}
+.rank-type .rank-text{
+  font-size: .15rem;
+  font-weight: 700;
+}
+.rank-type .rank-total{
+  font-size: .11rem;
+}
+
+.section .remark{
+  color: #A5A6BD;
+  font-size: 13px;
+  padding: 10px 0;
+}
+.compound{
+  background: url("../images/compound.png") 0 0 no-repeat;
+  background-size: cover;
+  color: #3EC8B7;
+}
+
+.major{
+  background: url("../images/major.png") 0 0 no-repeat;
+  background-size: cover; 
+  color: #FEBB29;
+}
+
+.btn-group{
+  display: flex;
+}
+.btn-group .item{
+  width: 50%;
+}
+
+.van-button--normal{
+  font-size: 17px;
+}
+.van-popup{
+  background-color: transparent; 
+}
+.popup-content{
+  width: 320px;
+  height: 350px;
+  text-align: center;
+}
+.popup-content .code{
+  padding: 20px;
+  height: 315px;
+  background: url("../images/propbg2x.png") 0 0 no-repeat;
+  background-size: cover;  
+}
+
+.popup-content .popup-title{
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 18px 46px 0;
+  line-height: 25px;
+}
+.code-img{
+  width: 110px;
+  height: 110px;
+  margin: 50px auto 10px;
+}
+.code-img img{
+  width: 100%;
+  height: 100%;
+}
+.mark-tip{
+  color: #8482A5;
+  font-size: 12px;
+}
+.mark{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url("../images/mark2x.png") 0 0 no-repeat;
+  background-size: cover; 
+  vertical-align: middle;
+}
+  
+.popup-content .close{
+  display: inline-block;
+  width: 29px;
+  height: 29px;
+  background: url("../images/close2x.png") 0 0 no-repeat;
+  background-size: cover;  
+}
+
+
+.share-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+}
+
+ .share-wrapper .share-block {
+    color: #8CC352;
+    font-size: .22rem;
+    width: 100%;
+    text-align: center;
+}
+
+.share-wrapper img {
+    display: block;
+    transform: rotate(-90deg);
+    width: 60%;
+    float: right;
+}
