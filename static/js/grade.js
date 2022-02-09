@@ -61,7 +61,7 @@ new Vue({
       formData.append('name', file.file.name);
 
       var that = this;
-      var url = "//adm.kaoyanxiao.com/api/File/UploadFiles"
+      var url = "https://adm.kaoyanxiao.com/api/File/UploadFiles"
       // url = "http://192.168.7.80:5002/api/File/UploadFiles"
 
       $.ajax({

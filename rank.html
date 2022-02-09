@@ -11,7 +11,7 @@
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.4/lib/index.css"> -->
     <link rel="stylesheet" href="./static/css/common.css?ver=12456">
     <link rel="stylesheet" href="./static/css/rank.css?ver=123457">
-    <title>2021年全国考研初试拟排名系统</title>
+    <title>2022年全国考研初试拟排名系统</title>
     <script>
         (function (doc, win) {
             var docEl = doc.documentElement,
@@ -67,23 +67,26 @@
                 <van-row gutter="8">
                     <van-col span="8">
                         <div class="rank-type school">
-                            <p class="rank-val">{{userInfo.Status == '垃圾箱' ? '--' : userInfo.Rank2}}</p>
-                            <p class="rank-text">校内排名</p>
-                            <p class="rank-total">共{{userInfo.Total2}}人</p>
+                            <!-- <p class="rank-val">{{userInfo.Status == '垃圾箱' ? '--' : userInfo.Rank2}}</p> -->
+                            <p class="rank-val">{{userInfo.Total2||'--'}}</p>
+                            <p class="rank-text">校内统计人数</p>
+                            <!-- <p class="rank-total">共{{userInfo.Total2}}人</p> -->
                         </div>
                     </van-col>
                     <van-col span="8">
                         <div class="rank-type compound">
-                            <p class="rank-val">{{userInfo.Status == '垃圾箱' ? '--' : userInfo.Rank3}}</p>
-                            <p class="rank-text">院内排名</p>
-                            <p class="rank-total">共{{userInfo.Total3}}人</p>
+                            <!-- <p class="rank-val">{{userInfo.Status == '垃圾箱' ? '--' : userInfo.Rank3}}</p> -->
+                            <p class="rank-val">{{userInfo.Total3||'--'}}</p>
+                            <p class="rank-text">院内统计人数</p>
+                            <!-- <p class="rank-total">共{{userInfo.Total3}}人</p> -->
                         </div>
                     </van-col>
                     <van-col span="8">
                         <div class="rank-type major">
-                            <p class="rank-val">{{userInfo.Status == '垃圾箱' ? '--' : userInfo.Rank4}}</p>
-                            <p class="rank-text">专业排名</p>
-                            <p class="rank-total">共{{userInfo.Total4}}人</p>
+                            <!-- <p class="rank-val">{{userInfo.Status == '垃圾箱' ? '--' : userInfo.Rank4}}</p> -->
+                            <p class="rank-val">{{userInfo.Total4||'--'}}</p>
+                            <p class="rank-text">专业统计人数</p>
+                            <!-- <p class="rank-total">共{{userInfo.Total4}}人</p> -->
                         </div>
                     </van-col>
                 </van-row>
@@ -92,7 +95,7 @@
                 注: 此报告生成时间为{{userInfo.RankTime}}
             </div>
             <div style="font-size:.12rem;">
-                <div style="font-size:.13rem;color:#7677EA;">以下为专业总分排名，科目分数详情添加官方微信获取</div>
+                <div style="font-size:.13rem;color:#7677EA;">以下为专业总分排名，科目分数可进下面复试群了解</div>
 
                 <van-list v-model="loading"
                           :finished="finished"
@@ -117,10 +120,10 @@
         <footer class="footer" style="position: fixed;background: #F7F3FF;">
             <div class="btn btn-group">
                 <div class="item" style="margin-right: 5px;">
-                    <van-button style="padding: 0 5px;" @click="updateHandle" type="info" block round>英语翻硕复试群</van-button>
+                    <van-button style="padding: 0 5px;" @click="updateHandle" type="info" block round>复试导学课</van-button>
                 </div>
                 <div class="item" style="margin-left: 5px;">
-                    <van-button style="padding: 0 5px;" @click="communicationHandle" type="info" block round>复试/二战交流群</van-button>
+                    <van-button style="padding: 0 5px;" @click="communicationHandle" type="info" block round>复试/调剂交流群</van-button>
                 </div>
             </div>
             <div class="btn">
@@ -137,10 +140,12 @@
         <van-popup v-model="update" :close-on-click-overlay="false">
             <div class="popup-content update">
                 <div class="code">
-                    <p class="popup-title">添加下方微信进英语翻译硕士复试群</p>
+                    <p class="popup-title">扫描下方二维码听听复试如何准备</p>
                     <div>
                         <div class="code-img">
-                            <img src="./static/images/11.jpg" alt="logo">
+                            <!-- <img src="./static/images/11.jpg" alt="code"> -->
+                            <img :src="code1" alt="code">
+
                         </div>
                         <p class="mark-tip">
                             <span class="mark"></span>
@@ -155,10 +160,11 @@
         <van-popup v-model="communication" :close-on-click-overlay="false">
             <div class="popup-content communication">
                 <div class="code">
-                    <p class="popup-title">添加下方微信进复试群2</p>
+                    <p class="popup-title">QQ扫描下方二维码进复试群</p>
                     <div>
                         <div class="code-img">
-                            <img src="./static/images/22.jpg" alt="logo">
+                            <!-- <img src="./static/images/22.jpg" alt="logo"> -->
+                            <img :src="code2" alt="code">
                         </div>
                         <p class="mark-tip">
                             <span class="mark"></span>

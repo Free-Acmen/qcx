@@ -1,5 +1,5 @@
-var HOST ='//adm.kaoyanxiao.com:8099'
-var baseUrl = '//adm.kaoyanxiao.com/api/'
+var HOST ='https://adm.kaoyanxiao.com:8099'
+var baseUrl = 'https://adm.kaoyanxiao.com/api/'
 var Interface = {
   'getSelData': {
     url: 'HYJY/Paths/GetNextPaths',
@@ -178,7 +178,7 @@ PFunc.ajax('getWxConfig', '', 1).then(function (res) {
     wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
         var shareConfig = {
             link: window.location.href,
-            title: '前程校2020考研初试排名查询',
+            title: '前程校2022考研初试排名查询',
             desc: '我刚在这里查询了考研初试排名，很好用，你也来查一下吧！知己知彼，复试无忧！',
             imgUrl: '../images/logo@300px.png'
         }
