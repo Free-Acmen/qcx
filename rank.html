@@ -95,27 +95,31 @@
                 注: 此报告生成时间为{{userInfo.RankTime}}
             </div>
             <div style="font-size:.12rem;">
-                <div style="font-size:.13rem;color:#7677EA;">以下为专业总分排名，科目分数可进下面复试群了解</div>
+              <div style="font-size:.13rem;color:#7677EA;">以下为专业总分排名，科目分数可进下面复试群了解</div>
 
-                <van-list v-model="loading"
-                          :finished="finished"
-                          finished-text=""
-                          @load="onLoad">
-                    <van-row style="margin-bottom: 6px;">
-                        <van-col span="4">排名</van-col>
-                        <van-col span="6">姓名</van-col>
-                        <van-col span="10">总分</van-col>
-                        <van-col span="4">状态</van-col>
-                    </van-row>      
-                    <van-row v-for="(item, index) in list" :key="item" style="margin-bottom: 8px;">
-                        <van-col span="4">{{index + 1}}</van-col>
-                        <van-col span="6">{{item.RealName}}</van-col>
-                        <van-col span="10">{{item.TotalGrade}} </van-col>
-                        <van-col span="4" style="color:#409EFF;">{{item.Status}}</van-col>
-                        <!-- <van-col span="24">{{item.Grades}}</van-col> -->
-                    </van-row>
-                </van-list>
-            </div>
+              <van-list v-model="loading"
+                        :finished="finished"
+                        finished-text=""
+                        @load="onLoad">
+                  <van-row style="margin-bottom: 6px;">
+                      <van-col span="4">排名</van-col>
+                      <van-col span="6">姓名</van-col>
+                      <van-col span="10">总分</van-col>
+                      <van-col span="4">状态</van-col>
+                  </van-row>      
+                  <van-row v-for="(item, index) in list" :key="item" style="margin-bottom: 8px;">
+                      <van-col span="4">{{index + 1}}</van-col>
+                      <van-col span="6">{{item.RealName}}</van-col>
+                      <van-col span="10">{{item.TotalGrade}} </van-col>
+                      <van-col span="4" style="color:#409EFF;">{{item.Status}}</van-col>
+                      <!-- <van-col span="24">{{item.Grades}}</van-col> -->
+                  </van-row>
+              </van-list>
+          </div>
+          <div v-if="Content">
+            <van-divider  :style="{ color: '#FEBB29', borderColor: '#FEBB29' }">专业相关信息</van-divider>
+            <div v-html="Content"></div>
+          </div>
         </section>
         <footer class="footer" style="position: fixed;background: #F7F3FF;">
             <div class="btn btn-group">
