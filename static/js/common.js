@@ -1,5 +1,7 @@
-var HOST ='https://adm.kaoyanxiao.com:8099'
-var baseUrl = 'https://adm.kaoyanxiao.com/api/'
+var HOST ='//adm.kaoyanxiao.com:8099'
+var baseUrl = '//adm.kaoyanxiao.com/api/'
+// var baseUrl = 'http://192.168.7.80:5002/api/'
+
 var Interface = {
   'getSelData': {
     url: 'HYJY/Paths/GetNextPaths',
@@ -36,6 +38,10 @@ var Interface = {
     'getRankList': {
        url: 'HYJY/Paths/GetUsers',
        method: 'post'
+    },
+    'getContent':{
+      url: 'HYJY/History/GetContent',
+      method: 'post'
     }
 }
 

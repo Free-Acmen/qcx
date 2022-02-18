@@ -20,7 +20,7 @@ new Vue({
       height: '568px',
       footHeight: '1.12rem',
       update: false,
-      communication: false,
+      communication: false, 
       shareFlag: false,
       userInfo: {},
       listHeight: '1.8rem',
@@ -33,8 +33,14 @@ new Vue({
     }
   },
   created() {
-    this.uinfo = Cache.get('uinfo');
-    if (!this.uinfo) {
+    this.uinfo = Cache.get('uinfo')||{};
+    if(this.uinfo.exist){
+      this.$dialog.alert({
+        title: '温馨提示',
+        message: '您好，您之前录入的数据已经通过审核，不能再次更新，如需要更新数据请联系群里的管理员协助处理，谢谢。',
+      }).then(() => {});
+    }
+    if (!this.uinfo.tel) {
       window.location.href = './index.html'
       return
     }
@@ -52,7 +58,7 @@ new Vue({
   methods: {
     initData: function(){
       var that = this
-      this.ajax('getRank', this.uinfo, 1).then(function(res){
+      this.ajax('getRank', this.uinfo.tel, 1).then(function(res){
         that.userInfo = res.data
 
         let schoolCode=that.userInfo.p2id
@@ -69,7 +75,7 @@ new Vue({
     },
     onLoad() {
       var that = this
-      this.ajax('getRankList', this.uinfo, 1).then(function (res) {
+      this.ajax('getRankList', this.uinfo.tel, 1).then(function (res) {
         that.loading = false;
         that.list = res.data
         
@@ -77,7 +83,17 @@ new Vue({
       })
     },
     getContent: function(){
-      this.Content="<p>这是历史成绩</p>\n<p>录取人数256人，录取分数386</p>\n<p><img class=\"wscnph\" src=\"//adm.kaoyanxiao.com/dat/Uploads/HYJY/e21c29885d3c42fc83287bfed81045f0.jpg\" width=\"300\" /></p>"
+      var that = this
+      var data={
+        p1id: this.userInfo.p1id,
+        p2id: this.userInfo.p2id,
+        p3id: this.userInfo.p3id,
+        p4id: this.userInfo.p4id
+      }
+      this.ajax('getContent', data, 1).then(function (res) {
+        that.Content=res.data.Content       
+      })
+      // this.Content="<p>这是历史成绩</p>\n<p>录取人数256人，录取分数386</p>\n<p><img class=\"wscnph\" src=\"//adm.kaoyanxiao.com/dat/Uploads/HYJY/e21c29885d3c42fc83287bfed81045f0.jpg\" width=\"300\" /></p>"
     },
     updateHandle: function () {
         this.update = true
