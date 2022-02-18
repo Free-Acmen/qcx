@@ -1,5 +1,5 @@
 var HOST ='//adm.kaoyanxiao.com:8099'
-var baseUrl = '//adm.kaoyanxiao.com/api/'
+var baseUrl = 'https://adm.kaoyanxiao.com/api/'
 // var baseUrl = 'http://192.168.7.80:5002/api/'
 
 var Interface = {

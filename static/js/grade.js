@@ -122,6 +122,7 @@ new Vue({
       }
       // console.log(data)
       this.ajax('complete', data,1).then(function(res){
+        // debugger
         Cache.set("uinfo", res.data);
         window.location.href = './rank.html'
       })

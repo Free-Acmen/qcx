@@ -33,7 +33,15 @@ new Vue({
     }
   },
   created() {
-    this.uinfo = Cache.get('uinfo')||{};
+    this.uinfo = Cache.get('uinfo');
+    var telPhone = this.uinfo
+    // console.log(typeof this.uinfo!=='objet', this.uinfo)
+    if(typeof this.uinfo=='string'){
+      this.uinfo={
+        exist: false,
+        tel: telPhone
+      }
+    }
     if(this.uinfo.exist){
       this.$dialog.alert({
         title: '温馨提示',
@@ -58,6 +66,8 @@ new Vue({
   methods: {
     initData: function(){
       var that = this
+    // console.log(this.uinfo.tel,888)
+
       this.ajax('getRank', this.uinfo.tel, 1).then(function(res){
         that.userInfo = res.data
 
@@ -91,7 +101,9 @@ new Vue({
         p4id: this.userInfo.p4id
       }
       this.ajax('getContent', data, 1).then(function (res) {
-        that.Content=res.data.Content       
+        if(res.data){
+          that.Content=res.data.Content       
+        }
       })
       // this.Content="<p>这是历史成绩</p>\n<p>录取人数256人，录取分数386</p>\n<p><img class=\"wscnph\" src=\"//adm.kaoyanxiao.com/dat/Uploads/HYJY/e21c29885d3c42fc83287bfed81045f0.jpg\" width=\"300\" /></p>"
     },
