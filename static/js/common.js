@@ -171,12 +171,12 @@ var Cache = {
 Vue.prototype.ajax = PFunc.ajax
 Vue.prototype.cache = Cache
 
-PFunc.ajax('getWxConfig', '', 1).then(function (res) {
+PFunc.ajax('getWxConfig', {url:'pm.kaoyanxiao.com'}, 1).then(function (res) {
     wx.config({
       debug: true,
-      appId: res.data.appId, // 必填，公众号的唯一标识
+      appId: res.data.appid, // 必填，公众号的唯一标识
       timestamp: res.data.timestamp, // 必填，生成签名的时间戳
-      nonceStr: res.data.nonceStr, // 必填，生成签名的随机串
+      nonceStr: res.data.noncestr, // 必填，生成签名的随机串
       signature: res.data.signature,// 必填，签名
       jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData', 'onMenuShareWeibo'] // 必填，需要使用的JS接口列表
     });

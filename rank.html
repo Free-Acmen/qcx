@@ -8,6 +8,7 @@
     <meta name="description" content="1分钟填写初试拟排名，抢占复试备考先机！" />
     <link rel="stylesheet" href="./static/css/reset.css">
     <link rel="stylesheet" href="./static/plugins/vant/index.css">
+    <link href="//unpkg.com/viewerjs/dist/viewer.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.4/lib/index.css"> -->
     <link rel="stylesheet" href="./static/css/common.css?ver=12456">
     <link rel="stylesheet" href="./static/css/rank.css?ver=123457">
@@ -27,6 +28,14 @@
             doc.addEventListener('DOMContentLoaded', recalc, false);
         })(document, window);
     </script>
+    <style>
+      .diy-content table {
+        width: 100% !important;
+      }
+      .diy-content img {
+        max-width: 100% !important;
+      }
+    </style>
 </head>
 <body>
     <noscript>
@@ -116,7 +125,7 @@
                   </van-row>
               </van-list>
           </div>
-          <div v-if="Content">
+          <div v-if="Content" v-viewer class="diy-content" style="width:100%;">
             <van-divider  :style="{ color: '#FEBB29', borderColor: '#FEBB29' }">专业相关信息</van-divider>
             <div v-html="Content"></div>
           </div>
@@ -192,11 +201,17 @@
     <script src="./static/plugins/jquery-3.2.1.min.js"></script>
     <script src="./static/plugins/vue.min.js"></script>
     <script src="./static/plugins/vant/vant.min.js"></script>
+    <script src="//unpkg.com/viewerjs/dist/viewer.js"></script>
+    <script src="//unpkg.com/v-viewer/dist/v-viewer.js"></script>
+    <script>
+      Vue.use(VueViewer.default)
+    </script>
     <!-- 微信sdk文件，调用微信接口功能 -->
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vant@2.4/lib/vant.min.js"></script> -->
-    <script src="./static/js/common.js?ver=20220218"></script>
-    <script src="./static/js/rank.js?ver=2022021801"></script>
+    <script src="./static/js/common.js?ver=2022021822"></script>
+    <script src="./static/js/rank.js?ver=2022021811"></script>
+    
 </body>
 </html>
