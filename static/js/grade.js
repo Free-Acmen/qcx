@@ -123,6 +123,7 @@ new Vue({
       // console.log(data)
       this.ajax('complete', data,1).then(function(res){
         // debugger
+        // console.log(res.data,9999)
         Cache.set("uinfo", res.data);
         window.location.href = './rank.html'
       })

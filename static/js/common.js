@@ -173,12 +173,12 @@ Vue.prototype.cache = Cache
 
 PFunc.ajax('getWxConfig', '', 1).then(function (res) {
     wx.config({
-        debug: true,
-        appId: res.data.appId, // 必填，公众号的唯一标识
-        timestamp: res.data.timestamp, // 必填，生成签名的时间戳
-        nonceStr: res.data.nonceStr, // 必填，生成签名的随机串
-        signature: res.data.signature,// 必填，签名
-        jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData', 'onMenuShareWeibo'] // 必填，需要使用的JS接口列表
+      debug: true,
+      appId: res.data.appId, // 必填，公众号的唯一标识
+      timestamp: res.data.timestamp, // 必填，生成签名的时间戳
+      nonceStr: res.data.nonceStr, // 必填，生成签名的随机串
+      signature: res.data.signature,// 必填，签名
+      jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData', 'onMenuShareWeibo'] // 必填，需要使用的JS接口列表
     });
 
     wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
