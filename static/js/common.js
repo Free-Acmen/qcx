@@ -171,9 +171,9 @@ var Cache = {
 Vue.prototype.ajax = PFunc.ajax
 Vue.prototype.cache = Cache
 
-PFunc.ajax('getWxConfig', {url:'pm.kaoyanxiao.com'}, 1).then(function (res) {
+PFunc.ajax('getWxConfig', window.location.href, 1).then(function (res) {
     wx.config({
-      debug: true,
+      debug: false,
       appId: res.data.appid, // 必填，公众号的唯一标识
       timestamp: res.data.timestamp, // 必填，生成签名的时间戳
       nonceStr: res.data.noncestr, // 必填，生成签名的随机串
@@ -186,7 +186,8 @@ PFunc.ajax('getWxConfig', {url:'pm.kaoyanxiao.com'}, 1).then(function (res) {
             link: window.location.href,
             title: '前程校2022考研初试排名查询',
             desc: '我刚在这里查询了考研初试排名，很好用，你也来查一下吧！知己知彼，复试无忧！',
-            imgUrl: '../images/logo@300px.png'
+            // imgUrl: '../images/logo@300px.jpg'
+            imgUrl: "https://tyimg.esells.cn/others/TemporaryFile/Product/20220220/8ddfd05fb1a3438f85d62d6d9034eabc.jpg"
         }
 
         wx.updateAppMessageShareData({
