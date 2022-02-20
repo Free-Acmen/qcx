@@ -76,7 +76,7 @@ new Vue({
       },
     bannerLink: function(flag) {
       if(flag == 1){
-        window.location.href = 'https://mp.weixin.qq.com/s/bw1CeITrfb681TuyrFTb8g'
+        window.location.href = 'https://mp.weixin.qq.com/s/DRqEjv3fCKdaOvW3DR42qg'
       }else{
         window.location.href = 'https://mp.weixin.qq.com/s/Qz96y24qaWKsn6SYt6ODxA'
       }
