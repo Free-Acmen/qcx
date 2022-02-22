@@ -103,7 +103,7 @@ new Vue({
       this.show = true
     },
     completeHandle: function(){
-      if(!this.phone || !(/^1[345678]\d{9}$/.test(this.phone))){
+      if(!this.phone || !(/^1[3456789]\d{9}$/.test(this.phone))){
         vant.Notify({ type: 'warning', message: '请先输入正确的手机号' });
         return
       }
